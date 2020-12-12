@@ -130,13 +130,3 @@ class EnglishFrameNet(object):
             frame_name = item.decode('utf-8').strip()
             if frame.lower() == frame_name.lower():
                 return index
-
-
-def main():
-    #plug in the path to the FN database as argument here
-    data = EnglishFrameNet('/Users/jennifersikos/Desktop/LinguisticResources/fndata-1.5/frame/')
-    frame_relation_map = data.frame_relation_map
-    lus_in_frame = data.lus_in_frame
-
-if __name__ == "__main__":
-    main()
