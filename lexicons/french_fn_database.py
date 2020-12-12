@@ -36,7 +36,7 @@ class FrenchFrameNet(object):
         return self._frames_for_lu
 
     @frames_for_lu.setter
-    def frames_for_lu(self, value):
+    def frames_for_lu(self, frames_for_lu):
         self._frames_for_lu = frames_for_lu
 
     @property
@@ -58,7 +58,6 @@ def buildFrames(file_root):
         for lemma in child.findall('LU'):
             frame_name = lemma.get('frame')
             if frame_name not in frames:
-                #frame_name = frame_name.replace("FR_", "")
                 frames.append(frame_name)
 
 # Build dictionary for all LUs in a frame
@@ -66,7 +65,6 @@ def buildFrameLexicalUnitsDict(file_root):
     for child in file_root.findall('LEMMACAT'):
         for lemma in child.findall('LU'):
             frame_name = lemma.get('frame')
-            #frame_name = frame_name.replace("FR_", "")
             lu_name = lemma.get('name')
             if frame_name in lus_in_frame:
                 lus = lus_in_frame[frame_name]
@@ -83,7 +81,6 @@ def buildFramesForLexicalUnitsDict(file_root):
     for child in file_root.findall('LEMMACAT'):
         for lemma in child.findall('LU'):
             frame_name = lemma.get('frame')
-            #frame_name = frame_name.replace("FR_", "")
             lu_name = lemma.get('name')
             if lu_name in frames_for_lu:
                 frames = frames_for_lu[lu_name]
