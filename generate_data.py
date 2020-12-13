@@ -15,9 +15,6 @@ logger = logging.getLogger(__name__)
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("--lexicon_dir", default=None, type=str, required=True,
-                    help="the directory with FrameNet lexicon.")
-
 parser.add_argument("--data_dir",
                     default=None,
                     type=str,
